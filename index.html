@@ -1,0 +1,80 @@
+<html>
+<head>
+    <script type="text/javascript">
+        var source;
+        var da= 4;
+        var db=4;
+        var b=150;
+        var a=5;
+        var p = true;
+
+        function draw(){
+            source= myCanvas.getContext('2d');
+            source.clearRect(0,0,400,400);
+            source.beginPath();
+            source.arc(b,a,20,0,Math.PI*2,true);
+            source.closePath();
+            source.fill();
+
+            if(p === true)
+            {
+                if( a<0 || a>400)
+                {
+                    da=-da;
+                    source.fillStyle="#FF0000";
+                }
+
+                if( b<0 || b>400)
+                {
+                    db=-db;
+                    source.fillStyle="#0000FF";
+                }
+                a+=da;
+                b+=db;
+            }
+        }
+
+        function start()
+        {
+            p = true;
+        }
+
+        function stop()
+        {
+            p = false;
+        }
+
+        setInterval(draw,7);
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Bouncing ball</title>
+    <style type="text/css">
+
+        #container { width:430px; margin:0 auto; align-items: center }
+        #myCanvas { background-color: rgba(158,167,184,0.1);}
+		body
+        {
+            background:url('1145111441L.jpg') no-repeat center center fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<body background="1145111441L.jpg">
+
+<div id="container">
+       <canvas id="myCanvas" width="400" height="400"></canvas> <div align="center" style="text-align:center">
+            <button style="background-color: rgba(158,167,184,0.1)" onclick="start()">Start</button>
+            <button style="background-color: rgba(158,167,184,0.1)"  onclick="stop()">Stop</button>
+	    </div>
+
+</div>
+</body>
+</html>
